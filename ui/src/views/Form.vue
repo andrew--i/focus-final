@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Form src="https://examples.form.io/example" />
+    <Form src="https://examples.form.io/w4" />
   </div>
 </template>
 

@@ -1,23 +1,45 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <FormBuilder v-bind:form="form" />
-  </div>
+    <div class="builder">
+        <button @click="saveForm">Сохранить</button>
+        <form-builder :form="form" :options="options"/>
+    </div>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import { FormBuilder } from 'vue-formio';
+<script>
+  import {FormBuilder} from 'vue-formio'
 
-@Component({
-  components: {
-    FormBuilder,
-  },
-  data: () => {
-    return {
-      form: {},
-    };
-  },
-})
-export default class Home extends Vue {}
+  export default {
+    components: {
+      FormBuilder
+    },
+    methods: {
+      saveForm() {
+        console.log(JSON.stringify(this.form))
+      }
+    },
+    data() {
+      return {
+        form: {},
+        options: {
+          builder: {
+            basic: false,
+            advanced: false,
+            data: false,
+            premium: false,
+            customBasic: {
+              title: 'Базовые компоненты',
+              default: true,
+              weight: 0,
+              components: {
+                textfield: true,
+                textarea: true,
+                email: true,
+                phoneNumber: true
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 </script>
