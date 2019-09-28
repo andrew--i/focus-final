@@ -25,7 +25,6 @@ public class ProcessDefinitionController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ProcessDefinitionController.class);
 
-
     @Autowired
     private RepositoryService repositoryService;
 
@@ -45,7 +44,9 @@ public class ProcessDefinitionController {
         try {
             final ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery()
                     .processDefinitionKey("zags_process")
+                    .latestVersion()
                     .singleResult();
+
             final List<String> deploymentResources = repositoryService.getDeploymentResourceNames(processDefinition.getDeploymentId());
             final Optional<String> diagram = deploymentResources.stream().filter(r -> r.endsWith(".bpmn")).findFirst();
             if (diagram.isPresent()) {

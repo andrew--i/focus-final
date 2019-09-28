@@ -6,6 +6,8 @@
             <router-link to="/process">Конструктор процесса</router-link>
             |
             <router-link to="/builder">Конструтор формы</router-link>
+            |
+            <router-link to="/statistic">Статистика</router-link>
         </div>
         <router-view/>
     </div>
