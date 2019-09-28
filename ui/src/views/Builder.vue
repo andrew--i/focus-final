@@ -35,7 +35,12 @@
                 textarea: true,
                 email: true,
                 phoneNumber: true,
-                checkbox:true
+                checkbox: true,
+                number: true,
+                datetime: true,
+                address: true,
+                select: true,
+                file: true,
               }
             }
           }
