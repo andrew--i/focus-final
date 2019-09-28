@@ -68,6 +68,7 @@
               default: true,
               weight: 0,
               components: {
+                button: true,
                 textfield: true,
                 textarea: true,
                 email: true,
