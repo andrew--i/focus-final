@@ -34,7 +34,8 @@
                 textfield: true,
                 textarea: true,
                 email: true,
-                phoneNumber: true
+                phoneNumber: true,
+                checkbox:true
               }
             }
           }
