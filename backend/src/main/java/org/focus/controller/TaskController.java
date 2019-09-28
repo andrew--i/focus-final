@@ -31,8 +31,11 @@ public class TaskController {
             return null;
 
         final Task task = tasks.iterator().next();
+
+
         return new TaskDto(task.getId(), task.getName(), task.getAssignee(),
-                format.format(task.getCreateTime()));
+                format.format(task.getCreateTime()),
+                taskService.getVariables(task.getId()));
     }
 
     @GetMapping(value = "/api/task", produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
@@ -45,7 +48,8 @@ public class TaskController {
                             task.getId(),
                             task.getName(),
                             task.getAssignee(),
-                            format.format(task.getCreateTime()));
+                            format.format(task.getCreateTime()),
+                            taskService.getVariables(task.getId()));
                 })
                 .collect(Collectors.toSet());
     }

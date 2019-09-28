@@ -27,7 +27,7 @@
 
       async updateCurrentForm() {
 
-        let r = await axios.get('/api/task/user', {
+        let r = await axios.get('/api/task/gos', {
           auth: {
             username: 'user',
             password: 'user'
@@ -58,6 +58,7 @@
           }
         });
         this.updateCurrentForm();
+
       }
     },
 

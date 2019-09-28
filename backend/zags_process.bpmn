@@ -6,17 +6,22 @@
     </bpmn2:startEvent>
     <bpmn2:sequenceFlow id="SequenceFlow_00eef07" sourceRef="StartEvent_1" targetRef="Task_0ebo3iv" />
     <bpmn2:sequenceFlow id="SequenceFlow_1vt8zn3" sourceRef="Task_0ebo3iv" targetRef="Task_0fl313f" />
-    <bpmn2:endEvent id="EndEvent_03n0ien">
-      <bpmn2:incoming>SequenceFlow_1kjiiuz</bpmn2:incoming>
-    </bpmn2:endEvent>
-    <bpmn2:sequenceFlow id="SequenceFlow_1kjiiuz" sourceRef="Task_0fl313f" targetRef="EndEvent_03n0ien" />
     <bpmn2:userTask id="Task_0ebo3iv" name="userForm">
       <bpmn2:incoming>SequenceFlow_00eef07</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_1vt8zn3</bpmn2:outgoing>
     </bpmn2:userTask>
     <bpmn2:userTask id="Task_0fl313f" name="gosForm">
       <bpmn2:incoming>SequenceFlow_1vt8zn3</bpmn2:incoming>
-      <bpmn2:outgoing>SequenceFlow_1kjiiuz</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_1wuo0ua</bpmn2:outgoing>
+    </bpmn2:userTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_1wuo0ua" sourceRef="Task_0fl313f" targetRef="Task_1vygv9o" />
+    <bpmn2:endEvent id="EndEvent_1jrx4c1">
+      <bpmn2:incoming>SequenceFlow_130w4cr</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_130w4cr" sourceRef="Task_1vygv9o" targetRef="EndEvent_1jrx4c1" />
+    <bpmn2:userTask id="Task_1vygv9o" name="userResultForm">
+      <bpmn2:incoming>SequenceFlow_1wuo0ua</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_130w4cr</bpmn2:outgoing>
     </bpmn2:userTask>
   </bpmn2:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
@@ -32,18 +37,25 @@
         <di:waypoint x="600" y="258" />
         <di:waypoint x="660" y="258" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="EndEvent_03n0ien_di" bpmnElement="EndEvent_03n0ien">
-        <dc:Bounds x="822" y="240" width="36" height="36" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="SequenceFlow_1kjiiuz_di" bpmnElement="SequenceFlow_1kjiiuz">
-        <di:waypoint x="760" y="258" />
-        <di:waypoint x="822" y="258" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="UserTask_06o1obu_di" bpmnElement="Task_0ebo3iv">
         <dc:Bounds x="500" y="218" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="UserTask_1v5948g_di" bpmnElement="Task_0fl313f">
         <dc:Bounds x="660" y="218" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1wuo0ua_di" bpmnElement="SequenceFlow_1wuo0ua">
+        <di:waypoint x="760" y="258" />
+        <di:waypoint x="820" y="258" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="EndEvent_1jrx4c1_di" bpmnElement="EndEvent_1jrx4c1">
+        <dc:Bounds x="982" y="240" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_130w4cr_di" bpmnElement="SequenceFlow_130w4cr">
+        <di:waypoint x="920" y="258" />
+        <di:waypoint x="982" y="258" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="UserTask_02yrtvq_di" bpmnElement="Task_1vygv9o">
+        <dc:Bounds x="820" y="218" width="100" height="80" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
