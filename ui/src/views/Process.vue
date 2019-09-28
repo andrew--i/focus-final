@@ -26,10 +26,26 @@
 
   import BpmnModeler from 'bpmn-js/lib/Modeler';
 
+  import axios from 'axios'
+
   export default {
     methods: {
 
       saveProcess() {
+        this.modeler._definitions.rootElements[0].id="zags_process";
+        this.modeler._definitions.rootElements[0].isExecutable="true";
+        this.modeler.saveXML({format: true}, function (err, xml) {
+          if (!err) {
+            axios.post('/api/process/definition', xml, {
+              headers: {'Content-Type': 'application/xml'},
+              auth: {
+                username: 'admin',
+                password: 'admin'
+              }
+            });
+          }
+        });
+
 
       },
 

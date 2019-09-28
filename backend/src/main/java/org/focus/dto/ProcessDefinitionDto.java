@@ -8,7 +8,6 @@ import lombok.Data;
 public class ProcessDefinitionDto {
     private String id;
     private String description;
-    private String formKey;
     private String key;
     private String name;
     private int version;
