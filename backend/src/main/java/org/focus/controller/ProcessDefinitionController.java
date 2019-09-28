@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
@@ -67,6 +69,11 @@ public class ProcessDefinitionController {
             produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
     public Map<String, String> addProcess(@RequestBody String xml) {
 
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("zags_process.bpmn"))) {
+            writer.append(xml);
+        } catch (IOException e) {
+            LOGGER.info("could not save process");
+        }
 
         final Deployment deployment = repositoryService.createDeployment()
                 .addInputStream(
