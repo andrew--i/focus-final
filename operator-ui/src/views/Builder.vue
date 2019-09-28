@@ -41,7 +41,10 @@
     },
     methods: {
       saveForm() {
-        axios.post('/api/form/' + this.formName, JSON.stringify(this.form), {
+        let formData = JSON.stringify(this.form);
+        // for debug
+        console.log(formData);
+        axios.post('/api/form/' + this.formName, formData, {
           headers: {'Content-Type': 'application/json'},
           auth: {
             username: 'admin',
