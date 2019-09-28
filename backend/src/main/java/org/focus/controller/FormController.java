@@ -25,8 +25,7 @@ public class FormController {
         }
     }
 
-    @GetMapping(value = "/api/form/{name}",
-            consumes = {MediaType.APPLICATION_JSON_UTF8_VALUE})
+    @GetMapping(value = "/api/form/{name}")
     public void getForm(@PathVariable String name, HttpServletResponse response) {
 
         final String fileName = getFormFileName(name);

@@ -43,12 +43,23 @@ public class ProcessInstanceController {
 
     @PostMapping(value = "/api/process/instance/{id}",
             produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
-    public ProcessInstanceDto startProcess(@PathVariable("id") String deploymentId) {
+    public ProcessInstanceDto startProcess(@PathVariable("id") String processDefinitionKey) {
         final org.activiti.engine.repository.ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery()
-                .deploymentId(deploymentId)
+                .processDefinitionKey(processDefinitionKey)
+                .latestVersion()
                 .singleResult();
 
         final ProcessInstance processInstance = runtimeService.startProcessInstanceById(processDefinition.getId());
         return new ProcessInstanceDto(processInstance.getProcessInstanceId(), processInstance.getProcessDefinitionId());
+    }
+
+    @GetMapping(value = "/api/process/instance/{id}")
+    public boolean hasRunningProcess(@PathVariable String id) {
+
+        final long runningProcesses = runtimeService.createExecutionQuery()
+                .processDefinitionKey(id)
+                .count();
+
+        return runningProcesses != 0;
     }
 }
