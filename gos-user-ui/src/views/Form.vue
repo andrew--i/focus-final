@@ -17,7 +17,6 @@
         form: {},
         formData: {
           data: {
-            fio: ''
           }
         }
       }
@@ -35,6 +34,7 @@
         });
 
         this.task = r.data;
+        this.formData.data = this.task.context;
 
 
         if (this.task) {

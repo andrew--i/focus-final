@@ -2,20 +2,15 @@
     <div style="height: 100%">
         <v-container>
             <v-row no-gutters :justify="'start'">
-                <v-col md="3">
-                    <v-autocomplete
-                            label="Формы"
-                            :items="forms"
+                <v-col  md="3">
+                    <v-text-field
+                            label="Форма"
                             v-model="formName"
-                            @change="formSelectionChange"
-                            filled
-                            rounded
-                    ></v-autocomplete>
+                            single-line
+                    ></v-text-field>
 
                 </v-col>
             </v-row>
-
-
         </v-container>
 
 
@@ -39,16 +34,6 @@
     },
     methods: {
 
-      async formSelectionChange() {
-        let r = await axios.get('/api/form/' + this.formName, {
-          auth: {
-            username: 'admin',
-            password: 'admin'
-          }
-        });
-        this.form = r.data;
-
-      },
       saveForm() {
         let formData = JSON.stringify(this.form);
         // for debug
@@ -78,7 +63,6 @@
     data() {
       return {
         form: {},
-        forms: [],
         formName: undefined,
         options: {
           builder: {
