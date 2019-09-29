@@ -10,9 +10,13 @@ import 'vuetify/dist/vuetify.min.css';
 
 Vue.use(Vuetify);
 
+
+let vuetify = new Vuetify({});
+
 let vue = new Vue({
     router,
     store,
+    vuetify,
     render: (h) => h(App),
 });
 vue.$mount('#app');

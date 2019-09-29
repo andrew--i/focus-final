@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
 import Builder from './views/Builder.vue';
+import Statistic from './views/Statistic.vue';
 
 Vue.use(Router);
 
@@ -26,6 +27,11 @@ export default new Router({
       path: '/builder',
       name: 'Конструктор формы',
       component: Builder,
+    },
+    {
+      path: '/statistic',
+      name: 'Статистика',
+      component: Statistic,
     },
   ],
 });
