@@ -102,6 +102,7 @@
                 address: true,
                 select: true,
                 file: true,
+                selectboxes: true,
               }
             }
           }
