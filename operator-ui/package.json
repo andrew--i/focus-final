@@ -14,7 +14,7 @@
     "bpmn-js": "^5.0.5",
     "core-js": "^2.6.5",
     "diagram-js": "^5.0.0",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "vue": "^2.6.10",
     "vue-class-component": "^7.0.2",
     "vue-formio": "^4.0.0",
